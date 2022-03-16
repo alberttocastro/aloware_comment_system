@@ -15,6 +15,10 @@ class Comment extends Model
         'parent_comment_id'
     ];
 
+    protected $hidden = [
+        'updated_at',
+    ];
+
     public function parent_comment()
     {
         return $this->belongsTo(comment::class, 'parent_comment_id', 'id');
