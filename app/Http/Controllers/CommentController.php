@@ -29,6 +29,11 @@ class CommentController extends Controller
     {
         $comment = new Comment($request->toArray());
 
+        //If presents parent comment id, verifies if
+        if (!$comment->is_acceptable_depth()) {
+            return response('', 400);
+        }
+
         if ($comment->save()) {
             return $comment;
         }

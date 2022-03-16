@@ -24,4 +24,21 @@ class Comment extends Model
     {
         return $this->hasMany(comment::class, 'parent_comment_id', 'id');
     }
+
+    public function is_acceptable_depth()
+    {
+        $depth = 0;
+
+        $parent = $this->parent_comment;
+        if (!$parent) return true;
+
+        $depth++;
+        while ($parent) {
+            $depth++;
+            if ($depth > 4) return false;
+            $parent = $parent->parent_comment;
+        }
+
+        return true;
+    }
 }
