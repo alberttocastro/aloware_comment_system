@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WebAppController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{any}', 'WebAppController@index')->where('any', '^((?!\bapi\b).)*$')->where('path', '.*');
+Route::get('/{any}', [WebAppController::class, 'index'])->where('any', '^((?!\bapi\b).)*$')->where('path', '.*');
