@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StorecommentRequest;
-use App\Http\Requests\UpdatecommentRequest;
-use App\Models\comment;
+use App\Http\Requests\StoreCommentRequest;
+use App\Http\Requests\UpdateCommentRequest;
+use Illuminate\Http\Response;
+use App\Models\Comment;
 
 class CommentController extends Controller
 {
@@ -21,7 +22,7 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorecommentRequest  $request
+     * @param  \App\Http\Requests\StoreCommentRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(StorecommentRequest $request)
@@ -32,7 +33,7 @@ class CommentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\comment  $comment
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
     public function show(comment $comment)
@@ -43,8 +44,8 @@ class CommentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatecommentRequest  $request
-     * @param  \App\Models\comment  $comment
+     * @param  \App\Http\Requests\UpdateCommentRequest  $request
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
     public function update(UpdatecommentRequest $request, comment $comment)
@@ -55,7 +56,7 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\comment  $comment
+     * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
     public function destroy(comment $comment)
