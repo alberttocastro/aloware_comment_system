@@ -16,7 +16,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        return Comment::all();
     }
 
     /**
@@ -25,9 +25,15 @@ class CommentController extends Controller
      * @param  \App\Http\Requests\StoreCommentRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorecommentRequest $request)
+    public function store(StoreCommentRequest $request)
     {
-        //
+        $comment = new Comment($request->toArray());
+
+        if ($comment->save()) {
+            return $comment;
+        }
+
+        return response('', 400);
     }
 
     /**
@@ -36,31 +42,8 @@ class CommentController extends Controller
      * @param  \App\Models\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function show(comment $comment)
+    public function show(Comment $comment)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateCommentRequest  $request
-     * @param  \App\Models\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdatecommentRequest $request, comment $comment)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(comment $comment)
-    {
-        //
+        return $comment;
     }
 }
