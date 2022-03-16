@@ -19,4 +19,4 @@ use App\Http\Controllers\CommentController;
 //     return $request->user();
 // });
 
-Route::apiResource('/comment', CommentController::class)->only(['create', 'show', 'index']);
+Route::apiResource('/comment', CommentController::class)->only(['store', 'show', 'index']);
