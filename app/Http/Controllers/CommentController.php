@@ -16,7 +16,10 @@ class CommentController extends Controller
      */
     public function index()
     {
-        return Comment::all();
+        return Comment::orderByDesc('created_at')
+            ->whereNull('parent_comment_id')
+            ->with('child_comments.child_comments.child_comments')
+            ->get();
     }
 
     /**
