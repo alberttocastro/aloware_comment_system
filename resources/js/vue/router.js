@@ -5,11 +5,17 @@ Vue.use(Router)
 
 let router = new Router({
     mode: 'history',
-    routes: [{
-        path: '',
-        name: 'home',
-        component: require('.pages/index.vue').default
-    },
+    routes: [
+        {
+            path: '',
+            name: 'home',
+            component: require('.pages/IndexPage.vue').default
+        },
+        {
+            path: '/post',
+            name: 'post',
+            component: require('.pages/PostPage.vue').default
+        },
     ]
 });
 
