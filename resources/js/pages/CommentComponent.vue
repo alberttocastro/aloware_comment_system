@@ -1,12 +1,18 @@
 <template>
   <div>
     <div v-for="comment in comments" :key="comment.id" class="my-5">
-      <h2>{{ comment.name }}</h2>
-      <p class="m-0">{{ comment.body }}</p>
+      <h2 class="mb-0">{{ comment.name }}</h2>
+      <p class="m-0 mb-3">{{ comment.body }}</p>
       <a v-if="level < 3" href="#new-post" @click="replyToThis(comment)"
         >Reply</a
       >
-      <div v-if="comment.child_comments.length > 0" class="comments pl-5 mt-3">
+      <div
+        v-if="
+          typeof comment.child_comments != 'undefined' &&
+          comment.child_comments.length > 0
+        "
+        class="comments pl-5 mt-3"
+      >
         <comments :comments="comment.child_comments" :level="level + 1" />
       </div>
     </div>

@@ -58,25 +58,23 @@
 
       <hr />
 
-      <div>
+      <div id="comment-section">
         <h2>Comments</h2>
 
         <comment-component :comments="comments" :level="0" />
 
-        <div class="mt-10">
-          <h3 id="new-post">Add a new comment</h3>
+        <div id="new-post" class="mt-10 p-4 rounded-lg">
+          <h3>Add a new comment</h3>
           <div>
-            <div v-if="replyTo">
+            <div v-if="replyTo" class="mb-3">
               <span>{{ `Replying to ${this.replyTo.name}. ` }} </span>
-              <a href="#new-post" @click="removeReply">Remove</a>
+              <a href="#new-post" @click="removeReply"
+                >I don't want to reply.</a
+              >
             </div>
-            <v-text-field
-              outlined
-              v-model="commenterName"
-              label="Name"
-            ></v-text-field>
-            <v-textarea outlined v-model="body" label="Comment"></v-textarea>
-            <v-btn @click="send">Send</v-btn>
+            <v-text-field v-model="commenterName" label="Name"></v-text-field>
+            <v-textarea v-model="body" label="Comment"></v-textarea>
+            <v-btn color="accent" @click="send">Submit Comment</v-btn>
           </div>
         </div>
       </div>
@@ -139,4 +137,7 @@ export default {
 </script>
 
 <style>
+#new-post {
+  background-color: rgb(236, 236, 236);
+}
 </style>

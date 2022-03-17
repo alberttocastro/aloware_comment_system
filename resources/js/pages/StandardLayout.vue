@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app>
+    <v-app-bar app color="grey darken-3" dark>
       <a href="/" id="title-link"
         ><v-app-bar-title> The One Post Blog </v-app-bar-title></a
       >
