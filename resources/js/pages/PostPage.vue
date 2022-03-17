@@ -72,9 +72,19 @@
                 >I don't want to reply.</a
               >
             </div>
-            <v-text-field v-model="commenterName" label="Name"></v-text-field>
-            <v-textarea v-model="body" label="Comment"></v-textarea>
-            <v-btn color="accent" @click="send">Submit Comment</v-btn>
+            <v-text-field
+              required
+              v-model="commenterName"
+              label="Name"
+            ></v-text-field>
+            <v-textarea required v-model="body" label="Comment"></v-textarea>
+            <v-btn
+              :disabled="!commenterName || !body"
+              color="blue-grey darken-4"
+              :text="true"
+              @click="send"
+              >Submit Comment</v-btn
+            >
           </div>
         </div>
       </div>
