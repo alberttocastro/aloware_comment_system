@@ -12,17 +12,17 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
-    <link rel="manifest" href="{{ asset('manifest/manifest.json') }}" />
 
     {{-- Font-awesome --}}
     <script src="https://kit.fontawesome.com/cd45ba16df.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
     <div id="vue">
     </div>
 </body>
+
 <script src="{{ asset('js/app.js') }}" type="text/javascript"></script>
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
 </html>
